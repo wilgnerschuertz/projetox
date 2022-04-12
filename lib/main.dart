@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetox/screens/home/home_screen.dart';
 import 'package:projetox/views/home/home_products.dart';
 
 void main() {
@@ -13,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'SHOP',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeProducts(),
+      home: HomeScreen(),
     );
   }
 }
