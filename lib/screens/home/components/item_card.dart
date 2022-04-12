@@ -23,10 +23,12 @@ class ItemCard extends StatelessWidget {
           // height: 180,
           // width: 160,
           decoration: BoxDecoration(
-            color: products[1].color,
+            // color: products[1].color,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Image.asset(products[1].image),
+          child:
+          // Image.asset(products[1].image),
+          Image.asset(products[1].image),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),

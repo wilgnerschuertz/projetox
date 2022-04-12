@@ -15,19 +15,17 @@ class NewArrivals extends StatefulWidget {
 }
 
 class _NewArrivalsState extends State<NewArrivals> {
-
   ValueNotifier<List<Product>> produtos = ValueNotifier<List<Product>>([]);
 
   getAllProducts() async {
-
     var client = http.Client();
-    try{
+    try {
       var response = await client.get(
         Uri.parse(GetAPI().getAllProducts),
       );
       var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as List;
       produtos.value = decodedResponse.map((e) => Product.fromJson(e)).toList();
-    }finally{
+    } finally {
       client.close();
     }
   }
@@ -59,36 +57,31 @@ class _NewArrivalsState extends State<NewArrivals> {
                 builder: (_, value, __) => ListView.builder(
                   shrinkWrap: true,
                   itemCount: value.length,
-                  itemBuilder: (_, idx) =>
-                      Card(
-                        elevation: 5,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(12))),
-                        child: Padding(
-                          padding:const EdgeInsets.all(10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                                Hero(
-                                   tag: AppStrings.instance.listHeroTag(idx),
-                                   child: AspectRatio(aspectRatio: 1.1,
-                                       child: Image.network(value[idx].image.toString())),
-                               ),
-                              SizedBox(height: height * 0.01),
-                               Text(value[idx].title.toString(),
-                                   style: currentTheme.textTheme.headline6!
-                                       .copyWith(fontWeight: FontWeight.w300)
-                               ),
-                              SizedBox(height: height * 0.01),
-                              // buildTitleText(currentTheme),
-                              // SizedBox(height: height * 0.005),
-                              // buildWeightText(currentTheme)
-                            ],
+                  itemBuilder: (_, idx) => Card(
+                    elevation: 5,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Hero(
+                            tag: AppStrings.instance.listHeroTag(idx),
+                            child: AspectRatio(
+                                aspectRatio: 1.1,
+                                child:
+                                    Image.network(value[idx].image.toString())),
                           ),
-                        ),
+                          SizedBox(height: height * 0.01),
+                          Text(value[idx].title.toString(),
+                              style: currentTheme.textTheme.headline6!
+                                  .copyWith(fontWeight: FontWeight.w300)),
+                        ],
                       ),
+                    ),
+                  ),
                 ),
               ),
             ],

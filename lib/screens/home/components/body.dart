@@ -53,7 +53,7 @@ class _BodyState extends State<Body> {
               crossAxisCount: 2,
               childAspectRatio: 0.75,
             ),
-            itemBuilder: (context, index) => const ItemCard()),
+            itemBuilder: (context, index) => ItemCard()),
       ))
     ]);
   }

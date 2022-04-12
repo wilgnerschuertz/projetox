@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projetox/screens/home/components/bodyTESTE.dart';
 
 import 'components/body.dart';
 
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement build
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body(),
+      body: Body2(),
     );
   }
 
