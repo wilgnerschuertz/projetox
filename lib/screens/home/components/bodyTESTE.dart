@@ -52,7 +52,7 @@ class _Body2State extends State<Body2> {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
         child: Text(
-          'Zummy',
+          'Loja de Pods',
           style: Theme.of(context)
               .textTheme
               .headline5!
