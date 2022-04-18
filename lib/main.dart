@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projetox/screens/home/home_screen.dart';
-import 'package:projetox/views/home/home_products.dart';
+import 'package:dio/dio.dart';
+import 'package:projetox/route.dart';
+import 'package:projetox/services/product_repository.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: ProductRoute(
+        repository: ProductRepository(
+          dio: Dio(),
+        )),
     );
   }
 }

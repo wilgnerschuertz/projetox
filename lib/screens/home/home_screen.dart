@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projetox/screens/home/components/bodyTESTE.dart';
 
-import 'components/body.dart';
-
 class HomeScreen extends StatefulWidget {
-  HomeScreen({ Key? key}) : super(key: key);
+  const HomeScreen({ Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() {
@@ -28,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement build
     return Scaffold(
       appBar: buildAppBar(),
-      body: Body2(),
+      body: const Body2(),
     );
   }
 
@@ -38,11 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 1,
       actions: [
         IconButton(
-            icon: Icon(Icons.tune),
+            icon: const Icon(Icons.tune),
             color: Colors.black,
             onPressed: (){}
         ),
-        SizedBox(width: 8)
+        const SizedBox(width: 8)
       ],
     );
   }

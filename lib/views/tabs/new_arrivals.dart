@@ -21,7 +21,7 @@ class _NewArrivalsState extends State<NewArrivals> {
     var client = http.Client();
     try {
       var response = await client.get(
-        Uri.parse(GetAPI().getAllProducts),
+        Uri.parse(GetAPI().ApiConstsProducts),
       );
       var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as List;
       produtos.value = decodedResponse.map((e) => Product.fromJson(e)).toList();
