@@ -22,8 +22,33 @@ class ProductItemWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () =>
           onTap('/details',
-            DetailArguments(product: product, index: index),),
+            DetailArguments(product: product, index: index),), child: Stack(
+      children: [
+        Container(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '#${product.id}',
+                      style: TextStyle(
+                          color: Colors.black.withOpacity(0.4),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
     );
-    return Container();
   }
-}
+  }

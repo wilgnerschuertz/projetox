@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         title: const Padding(
           padding: EdgeInsets.only(left: 10),
           child: Text(
-            'Loja de Produtos',
+            'Loja',
             style: TextStyle(color: Colors.black, fontSize: 16),
           ),
         ),
@@ -33,11 +33,11 @@ class HomePage extends StatelessWidget {
           children: list
               .map(
                 (e) => ProductItemWidget(
-              product: e,
-              onTap: onItemTap,
-              index: list.indexOf(e),
-            ),
-          )
+                  product: e,
+                  onTap: onItemTap,
+                  index: list.indexOf(e),
+                ),
+              )
               .toList(),
         ),
       ),

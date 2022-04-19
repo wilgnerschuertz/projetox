@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projetox/models/products.dart';
 import 'package:projetox/services/product_repository.dart';
+
 import '../../../common/utilsPages/error.dart';
 import '../../../common/utilsPages/loading.dart';
 import '../../../error/failure.dart';
@@ -15,13 +16,14 @@ class HomeContainer extends StatelessWidget {
   }) : super(key: key);
   final IProductRepository repository;
   final Function(String, DetailArguments) onItemTap;
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Product>>(
       future: repository.allProductGet(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Loading();
+          return Loading();
         }
 
         if (snapshot.connectionState == ConnectionState.done &&

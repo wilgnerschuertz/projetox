@@ -1,6 +1,5 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:projetox/error/failure.dart';
 import 'package:projetox/services/api_consts.dart';
 
@@ -16,23 +15,14 @@ class ProductRepository implements IProductRepository {
 
   @override
   Future<List<Product>> allProductGet() async {
-
     try {
-      var response = await dio.get(ApiConstsP.allProductsURL);
-
-      var listProducts = (response.data as List).map((e) {
-        return Product.fromJson(e);
-      }).toList();
-
-      var json = jsonDecode(response.data) as Map<String, dynamic>;
-      var decJson = json as List<dynamic>;
-      // var list = json[''] as List<dynamic>;
-      return decJson.map((e) => Product.fromJson(e)).toList();
-
+      Response response = await Dio().get(ApiConstsP.allProductsURL);
+      if (kDebugMode) {
+        print(response);
+      }
+      return (response.data as List).map((e) => Product.fromJson(e)).toList();
     } catch (e) {
-
-      throw Failure(message: 'Erro ao chamar API');
-
+      throw Failure(message: "Error ao chamar API");
     }
   }
 }
